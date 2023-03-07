@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from "styled-components";
 
 
 const Recipe = () => {
@@ -22,21 +21,29 @@ const Recipe = () => {
     }, [params.name]);
 
     return (
-        <DetailWrapper>
-            <div>
-                <h2>{details.title}</h2>
-                <img src={details.image} alt="" />
-            </div>
-            <Info>
-                <Button className={activeTab === 'instructions' ? 'active' : ''} onClick={() => setActiveTab("instructions")}>Instructions</Button>
-                <Button className={activeTab === 'ingredients' ? 'active' : ''} onClick={() => setActiveTab("ingredients")}>Ingredients</Button>
+        <div className="home">
+        <div className="container-fluid">
+            <div className="row align-items-center my-5">
+              <div className="col-lg-7">
+                <img
+                  className="img-fluid rounded float-start mb-4 mb-lg-0 recipe"
+                  src={details.image}
+                  alt=""
+                />
+              </div>
+              <div className="col-lg-5">
+                <h1 className="font-weight-light">{details.title}</h1>
+                <div>
+                
+                <button type="button"  className="{activeTab === 'instructions' ? 'active' : ''} btn btn-warning" onClick={() => setActiveTab("instructions")}>Instructions</button>
+                <button type="button" className="{activeTab === 'ingredients' ? 'active' : ''} btn btn-warning" onClick={() => setActiveTab("ingredients")}>Ingredients</button>
                 <div>
                     {activeTab === 'instructions' && (
                         <div>
-                            <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
-                            <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
+                            <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
+                            <p dangerouslySetInnerHTML={{ __html: details.instructions }}></p>
                         </div>
-                    )};
+                    )}
 
                     {activeTab === 'ingredients' && (
 
@@ -46,43 +53,20 @@ const Recipe = () => {
                     ))}
                         </ul>
 
-                    )};
+                    )}
                 </div>
-            </Info>
-        </DetailWrapper>
+                </div>
+                 
+              </div>
+            </div>
+        </div>
+      </div>
+        
     );
 }
 
-const DetailWrapper = styled.div`
-margin-top: 10rem;
-margin-bottom: 5rem;
-display: flex;
-.active {
-    background: linear-gradient(35deg, #494949, #313131);
-    color: white;
 
-}
- h2 {
-    margin-bottom: 2rem;
- }
- li {
-    font-size: 1.2rem;
-    line-height: 2.5rem;
- }
 
- ul {
-    margin-top: 2rem;
- }`;
 
-const Button = styled.button`
- padding: 1rem 2rem;
- background: white;
- color: #313131;
- border: 2px solid black;
- margin-right: 2rem;
- font-weight: 600;`
 
-const Info = styled.div`
- margin-left: 10rem;
- `;
 export default Recipe

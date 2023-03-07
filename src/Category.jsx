@@ -38,11 +38,11 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 border-radius: 50%;
-margin-right: 2rem;
+margin-right: 0.5rem;
 text-decoration: none;
 background: black;
-width: 6rem;
-height: 6rem;
+width: 4rem;
+height: 4rem;
 cursor: pointer;
 transform: scale(0.8);
 h4{

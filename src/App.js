@@ -11,9 +11,11 @@ const App = () => {
   return (
     <div className='App'>
     <BrowserRouter>
-    <Nav>
+    <Nav className='foodbook'>
+    <p className='pt'>
     <GiKnifeFork />
       <Logo to={"/"}>Foodbook</Logo>
+      </p>
     </Nav>
     <Search />
     <Category />

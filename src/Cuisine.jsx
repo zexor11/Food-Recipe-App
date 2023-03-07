@@ -1,7 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import styled from "styled-components";
-import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom"
 
 
@@ -22,41 +20,31 @@ const Cuisine = () => {
   }, [params.type]);
 
   return (
-    <Grid>
-      {cuisine.map((item) => {
-        return (
-          <Card key={item.id}>
-          <Link to={"/recipe/" + item.id} >
+    <div className='popular'>
+            <div className='row'>
+      {cuisine.map((recipe) => {
+        return ( <div className="pricing-column col-lg-4 col-md-6">
 
-            <img src={item.image} alt="" />
-            <h4>{item.title}</h4>
-</Link>
-          </Card>
+<div className="card">
+    <img src={recipe.image} alt={recipe.title} className="card-img-top" />
+    <div className="card-header">
+        <h6>{recipe.title}</h6>
+    </div>
+    <div className="card-body">
+
+    <button className="btn btn-lg btn-block btn-danger " type="button" >
+        <Link to={"/recipe/" + recipe.id} className="compose-btn" >Get Recipe</Link></button>
+
+</div>
+</div>
+</div>
         )
       })}
-    </Grid>
+    </div>
+    </div>
   )
 }
 
-const Grid = styled.div`
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-grid-gap: 3rem;`;
-
-const Card = styled.div`
-img {
-  width: 100%;
-  border-radius: 2rem; 
-}
-
-a {
-  text-decoration: none;
-}
-
-h4 {
-  text-align: center;
-  padding: 1rem;
-}`;
 
 
 
