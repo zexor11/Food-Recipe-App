@@ -1,3 +1,10 @@
+# Description 
+This app allow you search any recipe for any dish you want.
+This app uses React Router DOM  that enables you to implement dynamic routing in our app.
+It's a multi page react app created using react and use spoonacular api to provide dishes, their recipes and ingredients.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
